@@ -13,6 +13,12 @@
 ActiveRecord::Schema.define(version: 2021_06_19_142226) do
 
   create_table "tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "yado_title"
+    t.string "yado_name"
+    t.text "text"
+    t.integer "date"
+    t.integer "area"
+    t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
