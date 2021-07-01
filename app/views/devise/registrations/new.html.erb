@@ -8,41 +8,36 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-  </head>
+
+<%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
 <body id="LoginForm">
 <div class="container">
-<div class="login-form">
-<div class="main-div">
-    <div class="panel">
-   <h2 class="form-heading">新規登録する</h2>
-   </div>
-    <form id="Login">
-
-        <div class="form-group">
-
-
-            <input type="email" class="form-control" id="inputEmail" placeholder="メールアドレス">
-
+  <div class="login-form">
+    <div class="main-div">
+        <div class="panel">
+          <h2 class="form-heading">新規登録する</h2>
         </div>
-
+      <form id="Login">
         <div class="form-group">
-
-            <input type="password" class="form-control" id="inputPassword" placeholder="パスワード">
-
+            <%= f.text_field :name, class:"form-control", id:"inputName", placeholder:"ユーザー名", maxlength:"40" %>
+        </div>
+        <div class="form-group">
+            <%= f.email_field :email, class:"form-control", id:"inputEmail", placeholder:"メールアドレス", autofocus: true %>
+        </div>
+        <div class="form-group">
+            <%= f.password_field :password, class:"form-control", id:"inputPassword", placeholder:"パスワード" %>
         </div>
         <div class="forgot">
-        <a href="reset.html">すでに登録済みの方はこちら</a>
-</div>
-        <button type="submit" class="btn btn-primary">新規登録する</button>
-
-    </form>
+          <a href="reset.html">すでに登録済みの方はこちら</a>
+        </div>
+        <%= f.submit "会員登録する" ,class:"btn btn-primary" %>
+      </form>
     <div class="input-group">
-					<span class="input-group-addon addon-facebook">
-						<i class="fa fa-fw fa-2x fa-facebook fa-fw"></i>
-					</span>
-					<a class="btn btn-block btn-facebook" href="#">Facebookで新規登録する</a>
-				</div>
-
+			<span class="input-group-addon addon-facebook">
+				<i class="fa fa-fw fa-2x fa-facebook fa-fw"></i>
+			</span>
+				<a class="btn btn-block btn-facebook" href="#">Facebookで新規登録する</a>
+		</div>
 				<div class="input-group">
 					<span class="input-group-addon addon-twitter">
 						<i class="fa fa-fw fa-2x fa-twitter fa-fw"></i>
@@ -53,3 +48,4 @@
 </div>
 </div>
 </div>
+<% end %>
