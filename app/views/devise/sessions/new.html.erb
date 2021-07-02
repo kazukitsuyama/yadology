@@ -9,7 +9,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-<%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
+<%= form_with model: @user, url: user_session_path, class: 'registration-main', local: true do |f| %>
 <body id="LoginForm">
   <div class="container">
     <div class="login-form">
@@ -19,16 +19,15 @@
         </div>
           <form id="Login">
         <div class="form-group">
-            <input type="email" class="form-control" id="inputEmail" placeholder="メールアドレス">
+            <%= f.email_field :email, class:"form-control", id:"inputEmail", placeholder:"メールアドレス", autofocus: true %>
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" id="inputPassword" placeholder="パスワード">
+            <%= f.password_field :password, class:"form-control", id:"inputPassword", placeholder:"パスワード" %>
         </div>
         <div class="forgot">
         <a href="reset.html">パスワードを忘れた場合</a>
-</div>
-        <button type="submit" class="btn btn-primary">ログインする</button>
-
+        </div>
+        <%= f.submit "ログインする" ,class:"btn btn-primary" %>
     </form>
     <div class="input-group">
 					<span class="input-group-addon addon-facebook">
