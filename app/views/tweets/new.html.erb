@@ -49,7 +49,7 @@
       <div>
         <div class="price-content">
           <span class="price-yen">¥</span>
-          <%= f.text_field :hoge, class:"price-input", id:"item-price", placeholder:"例）300" %>
+          <%= f.text_field :price, class:"price-input", id:"yado-price", placeholder:"例）300" %>
         </div>
 
       </div>
@@ -66,7 +66,7 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :hoge, id:"item-image" %>
+        <%= f.file_field :image, id:"yado-image" %>
       </div>
     </div>
     <%# /商品画像 %>
@@ -80,6 +80,7 @@
     </div>
     <%# /下部ボタン %>
   </div>
+  
   <% end %>
 
 </div>
