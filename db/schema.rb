@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 2021_07_02_161613) do
     t.string "yado_title", null: false
     t.string "yado_name", null: false
     t.text "text", null: false
-    t.integer "date", null: false
-    t.integer "area", null: false
+    t.datetime "date", null: false
     t.integer "price", null: false
     t.bigint "user_id", null: false
+    t.integer "area_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_tweets_on_user_id"

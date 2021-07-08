@@ -1,7 +1,7 @@
 <div class="tweet-contents">
   <div class="tweet-main">
     <h2 class="tweet-title">記事の情報を入力</h2>
-    <%= form_with local: true do |f| %>
+    <%= form_with(model: @tweet, local: true) do |f| %>
 
     <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
     <%# render 'shared/error_messages', model: f.object %>
@@ -14,28 +14,28 @@
         記事タイトル
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :hoge, class:"tweets-text", id:"yado-title", placeholder:"記事タイトル（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area :yado_title, class:"tweets-text", id:"yado-title", placeholder:"記事タイトル（必須 40文字まで)", maxlength:"40" %>
       <div class="weight-bold-text">
         宿泊宿の名前
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :hoge, class:"tweets-text", id:"yado-name", placeholder:"宿泊宿の名前（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area :yado_name, class:"tweets-text", id:"yado-name", placeholder:"宿泊宿の名前（必須 40文字まで)", maxlength:"40" %>
       <div class="tweets-explain">
         <div class="weight-bold-text">
           宿の説明
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :hoge, class:"tweets-text", id:"yado-info", placeholder:"宿の説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :text, class:"tweets-text", id:"yado-info", placeholder:"宿の説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
         <div class="weight-bold-text">
-          カテゴリー
+          施設利用日
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-category"}) %>
+        <%= f.date_field :date, class:"tweets-text", id:"yado-date" %>
         <div class="weight-bold-text">
-          商品の状態
+          都道府県
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-sales-status"}) %>
+        <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"tweets-text", id:"area-status"}) %>
       </div>
     </div>
     <%# /商品名と商品説明 %>    

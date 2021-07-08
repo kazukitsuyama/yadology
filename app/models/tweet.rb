@@ -9,10 +9,12 @@ class Tweet < ApplicationRecord
   end
 
   with_options presence: true, numericality: { other_than: 1 } do
-    validates :area
+    validates :area_id
   end
-
 
   belongs_to :user
   has_one_attached :image
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :area
 end
