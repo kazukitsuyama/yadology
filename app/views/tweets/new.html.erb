@@ -1,0 +1,86 @@
+<div class="tweet-contents">
+  <div class="tweet-main">
+    <h2 class="tweet-title">記事の情報を入力</h2>
+    <%= form_with(model: @tweet, local: true) do |f| %>
+
+    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+    <%# render 'shared/error_messages', model: f.object %>
+    <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+
+    
+    <%# 商品名と商品説明 %>
+    <div class="new-tweets">
+    <div class="weight-bold-text">
+        記事タイトル
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :yado_title, class:"tweets-text", id:"yado-title", placeholder:"記事タイトル（必須 40文字まで)", maxlength:"40" %>
+      <div class="weight-bold-text">
+        宿泊宿の名前
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :yado_name, class:"tweets-text", id:"yado-name", placeholder:"宿泊宿の名前（必須 40文字まで)", maxlength:"40" %>
+      <div class="tweets-explain">
+        <div class="weight-bold-text">
+          宿の説明
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :text, class:"tweets-text", id:"yado-info", placeholder:"宿の説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+        <div class="weight-bold-text">
+          施設利用日
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.date_field :date, class:"tweets-text", id:"yado-date" %>
+        <div class="weight-bold-text">
+          都道府県
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"tweets-text", id:"area-status"}) %>
+      </div>
+    </div>
+    <%# /商品名と商品説明 %>    
+
+    <%# 販売価格 %>
+    <div class="main-price">
+      <div class="weight-bold-text">
+        <span>宿泊金額</span>
+        <span class="indispensable">必須</span>
+      </div>
+      <div>
+        <div class="price-content">
+          <span class="price-yen">¥</span>
+          <%= f.text_field :price, class:"price-input", id:"yado-price", placeholder:"例）300" %>
+        </div>
+
+      </div>
+    </div>
+    <%# /販売価格 %>
+
+    <%# 商品画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        画像投稿
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"yado-image" %>
+      </div>
+    </div>
+    <%# /商品画像 %>
+
+
+
+    <%# 下部ボタン %>
+    <div class="tweet-btn-contents">
+      <%= f.submit "投稿する" ,class:"tweet-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  
+  <% end %>
+
+</div>
