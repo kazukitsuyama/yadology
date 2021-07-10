@@ -1,0 +1,13 @@
+<div class="card mb-4">
+  <%= link_to image_tag(tweet.image, class: "card-img-top"), tweets_path(tweet.id) %>
+    <div class="card-body">
+      <div class="small text-muted">
+        <%= tweet.yado_name %>
+      </div>
+        <h2 class="card-title h4">
+        <%= tweet.yado_title %>
+        </h2>
+          <%# <p class="card-text">サブタイトル</p> %>
+          <a class="btn btn-primary" href="#!">Read more →</a>
+    </div>
+</div>
