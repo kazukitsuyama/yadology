@@ -25,8 +25,12 @@
                         <figure class="mb-4">
                         <%= image_tag(@tweet.image,class:"img-fluid rounded") %>
                         </figure>
+                        <div class="text-muted fst-italic mb-2">
+                          <%= @tweet.date %>
+                         <div class="text-muted fst-italic mb-2">
+                          利用時の金額 <%= @tweet.price %>円
                         <!-- Post content-->
-                        <section class="mb-5">
+                        <section class="mb-5 text-body">
                             <%= @tweet.text %>
                         </section>
                     </article>
@@ -71,6 +75,10 @@
                                 </div>
                             </div>
                         </div>
+                         <% if user_signed_in? && current_user.id == @tweet.user_id %>
+                        <a class="btn btn-primary" href="#!">投稿の編集</a>
+                        <a class="btn btn-primary" href="#!">投稿の削除</a>
+                        <% end %>
                     </section>
                 </div>
                 <!-- Side widgets-->
