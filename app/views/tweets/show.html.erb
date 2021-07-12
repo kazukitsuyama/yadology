@@ -78,6 +78,7 @@
                          <% if user_signed_in? && current_user.id == @tweet.user_id %>
                         <%= link_to "投稿の編集",  edit_tweet_path, method: :get, class: "btn btn-primary" %>
                         <a class="btn btn-primary" href="#!">投稿の削除</a>
+                        <%= link_to "削除する", tweet_path, method: :delete, class: "btn btn-primary" %>
                         <% end %>
                     </section>
                 </div>
