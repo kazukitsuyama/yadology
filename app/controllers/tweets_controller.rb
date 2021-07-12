@@ -16,6 +16,12 @@ class TweetsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   def show
     @tweet = Tweet.find(params[:id])
   end
