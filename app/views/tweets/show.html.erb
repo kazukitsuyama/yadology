@@ -38,8 +38,10 @@
                     <section class="mb-5">
                         <div class="card bg-light">
                             <div class="card-body">
+                            <%= form_with model: @comment do |f| %>
                                 <!-- Comment form-->
-                                <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
+                                <%= f.text_area :text, placeholder: "ここにコメントを入力", rows: "3", class: "form-control" %>
+                                <% end %>
                                 <!-- Comment with nested comments-->
                                 <div class="d-flex mb-4">
                                     <!-- Parent comment-->
