@@ -41,6 +41,9 @@
                             <%= form_with model: @comment do |f| %>
                                 <!-- Comment form-->
                                 <%= f.text_area :text, placeholder: "ここにコメントを入力", rows: "3", class: "form-control" %>
+                                <div class="text-right">
+                                <%= f.submit "コメント", class: "btn btn-warning" %>
+                                </div>
                                 <% end %>
                                 <!-- Comment with nested comments-->
                                 <div class="d-flex mb-4">
