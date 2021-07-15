@@ -38,12 +38,16 @@
                     <section class="mb-5">
                         <div class="card bg-light">
                             <div class="card-body">
-                            <%= form_with model: @comment do |f| %>
+                            <% if user_signed_in? %>
+                            <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
                                 <!-- Comment form-->
                                 <%= f.text_area :text, placeholder: "ここにコメントを入力", rows: "3", class: "form-control" %>
                                 <div class="text-right">
                                 <%= f.submit "コメント", class: "btn btn-warning" %>
                                 </div>
+                                <% end %>
+                                <% else %>
+                                  <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
                                 <% end %>
                                 <!-- Comment with nested comments-->
                                 <div class="d-flex mb-4">
@@ -54,8 +58,6 @@
                                     </p>
                                     <% end %>
                                 </div>
-                                <!-- Single comment-->
-
                             </div>
                         </div>
                          <% if user_signed_in? && current_user.id == @tweet.user_id %>
