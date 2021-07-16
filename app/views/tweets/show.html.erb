@@ -53,7 +53,7 @@
                                 <div class="d-flex mb-4">
                                     <% @comments.each do |comment| %>
                                     <p>
-                                      <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+                                      <strong><%= link_to comment.user.name, "/users/#{comment.user_id}" %>：</strong>
                                         <%= comment.text %>
                                     </p>
                                     <% end %>
