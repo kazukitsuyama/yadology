@@ -1,0 +1,26 @@
+<div class="main">
+  <%= render "shared/header" %>
+  <div class="inner">
+    <div class="user__wrapper">
+      <h2 class="page-heading">
+        <%= @name %>さんの情報
+      </h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="table__col1">名前</th>
+            <td class="table__col2"><%= @name %></td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 class="page-heading">
+        <%="投稿した記事"%>
+      </h2>
+      <div class="user__card">
+        <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>
+        <%= render partial: "tweets/tweet", collection: @tweets %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer" %>
