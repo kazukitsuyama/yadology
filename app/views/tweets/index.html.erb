@@ -19,8 +19,10 @@
                     <!-- Nested row for non-featured blog posts-->
                     <div class="row">
                         <div class="col-lg-6">
-                            <!-- 記事一覧-->
-                            <%= render partial: "tweet", collection: @tweets %>
+                            <div class="card mb-4">
+                                <!-- 記事一覧-->
+                                <%= render partial: "tweet", collection: @tweets %>
+                            </div>
                         </div>
                     </div>
                     <!-- ページネーション-->

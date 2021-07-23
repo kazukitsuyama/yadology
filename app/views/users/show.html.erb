@@ -1,26 +1,34 @@
 <div class="main">
   <%= render "shared/header" %>
-  <div class="inner">
-    <div class="user__wrapper">
-      <h2 class="page-heading">
-        <%= @name %>さんの情報
-      </h2>
-      <table class="table">
-        <tbody>
-          <tr>
-            <th class="table__col1">名前</th>
-            <td class="table__col2"><%= @name %></td>
-          </tr>
-        </tbody>
-      </table>
-      <h2 class="page-heading">
-        <%="投稿した記事"%>
-      </h2>
-      <div class="user__card">
-        <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>
-        <%= render partial: "tweets/tweet", collection: @tweets %>
+  
+<!-- +++++ Welcome Section +++++ -->
+  <div id="ww">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 centered">
+          <%= image_tag "user.png", class:"user-img" %>
+          <p class="top-name">
+            <%= @name %>
+          </p>
+          <p>Hello everybody. I'm Stanley, a free handsome bootstrap theme coded. A really simple theme for those wanting to showcase their work with a cute & clean style.</p>
+          <p>Please, consider to register to <a href="#">our newsletter</a> to be updated with our latest themes and freebies. Like always, you can use this theme in any project freely. Share it with your friends.</p>
+        </div>
+        <!-- /col-lg-8 -->
       </div>
+      <!-- /row -->
     </div>
+    <!-- /container -->
   </div>
-</div>
-<%= render "shared/footer" %>
+  <!-- /ww -->
+
+
+
+  <div class="container pt">
+    <div class="row mt centered">
+      <div class="col-lg-4">
+      <%= render partial: "tweets/tweet", collection: @tweets %> 
+      </div>
+  </div>
+  <!-- /container -->
+
+  <%= render "shared/footer" %>
