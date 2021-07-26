@@ -1,7 +1,9 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :set_q, only: [:index, :search]
   def index
     @tweets = Tweet.order('created_at DESC')
+    
   end
 
   def new
@@ -47,9 +49,18 @@ class TweetsController < ApplicationController
     redirect_to root_path unless current_user == tweet.user
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
 
   def tweet_params
     params.require(:tweet).permit(:image, :yado_title, :yado_name, :text, :date, :price, :area_id).merge(user_id: current_user.id)
   end
+
+  def set_q
+    @q = Tweet.ransack(params[:q])
+  end
+
 end
