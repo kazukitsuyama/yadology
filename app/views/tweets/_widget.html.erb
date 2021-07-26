@@ -15,6 +15,7 @@
                     <!-- 都道府県カテゴリー-->
                     <div class="card mb-4">
                         <div class="card-header">都道府県検索</div>
+                        <%= search_form_for @q, url: search_tweets_path do |f| %>
                         <div class="card-body">
                             <div class="row">
                             <div class="col-sm-6">
@@ -74,10 +75,11 @@
                                 </div>
                             </div>
                         </div>
+                        <% end %>
                     </div>
                     <!-- 投稿日カレンダー-->
                     <div class="card mb-4">
-                      <div class="area-search">2021年</div>
+                      <div class="area-search">2021年 （近日実装）</div>
                       <table class="calendar">
                         <tr class="day">
                           <td><a href="#!">1月</a></td>

@@ -3,7 +3,6 @@ class TweetsController < ApplicationController
   before_action :set_q, only: [:index, :search]
   def index
     @tweets = Tweet.order('created_at DESC')
-    
   end
 
   def new

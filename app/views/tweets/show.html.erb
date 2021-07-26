@@ -1,40 +1,27 @@
-<div class='main'>
-        <!-- Responsive navbar-->
+        <!-- Product section-->
         <%= render "shared/header" %>
-        <!-- Page content-->
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-lg-8">
-                    <!-- Post content-->
-                    <article>
-                        <!-- Post header-->
-                        <header class="mb-4">
-                            <!-- Post title-->
-                            <h1 class="fw-bolder mb-1">
-                            <%= @tweet.yado_title %>
-                            </h1>
-                            <!-- Post meta content-->
-                            <div class="text-muted fst-italic mb-2">
-                            <%= @tweet.yado_name %>
-                            </div>
-                            <!-- Post categories-->
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row gx-4 gx-lg-5 align-items-center">
+                    <%= image_tag(@tweet.image,class:"img-fluid rounded") %>
+                    <div class="col-md-6">
+                        <%# <div class="small mb-1"><%= @name </div> %>
+                        <h1 class="display-5 fw-bolder">
+                        <%= @tweet.yado_title %>
+                        </h1>
+                        <div class="fs-5 mb-5">
+                            <span><%= @tweet.yado_name %></span>
+                        <a class="badge bg-secondary text-decoration-none link-light" href="#!">
                             <%= @tweet.area.name %></a>
-                        </header>
-                        <!-- Preview image figure-->
-                        <figure class="mb-4">
-                        <%= image_tag(@tweet.image,class:"img-fluid rounded") %>
-                        </figure>
-                        <div class="text-muted fst-italic mb-2">
-                          <%= @tweet.date %>
-                         <div class="text-muted fst-italic mb-2">
-                          利用時の金額 <%= @tweet.price %>円
-                        <!-- Post content-->
-                        <section class="mb-5 text-body">
-                            <%= @tweet.text %>
-                        </section>
-                    </article>
-                    <!-- Comments section-->
+                            </div>
+                        <p class="lead">
+                        <%= @tweet.text %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Comments section-->
                     <section class="mb-5">
                         <div class="card bg-light">
                             <div class="card-body">
@@ -65,16 +52,9 @@
                         <%= link_to "投稿の削除", tweet_path, method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-primary" %>
                         <% end %>
                     </section>
-                </div>
-                <!-- Side widgets-->
-                <%# <%= render "tweets/widget" %>
-                </div>
-            </div>
-        </div>
-</div>
-<!-- Footer-->
-<%= render "shared/footer" %>
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Core theme JS-->
-<script src="js/scripts.js"></script>
+        <!-- Footer-->
+        <%= render "shared/footer" %>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
