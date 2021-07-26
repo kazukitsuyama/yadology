@@ -25,8 +25,27 @@
 
   <div class="container pt">
     <div class="row mt centered">
-      <div class="col-lg-4">
-      <%= render partial: "tweets/tweet", collection: @tweets %> 
+      <div class="show-lists">
+      <div class='row'>
+                      <h2 class='navbar-brand'>新着記事</h2>
+                        <ul class='tweet-lists'>
+                        <% @tweets.each do |tweet|%>
+                        <li class='card mb-4'>
+                            <%= link_to image_tag(tweet.image, class: "card-img-top"), tweet_path(tweet.id), method: :get %>
+                        <div class="card-body">
+                            <div class="small text-muted">
+                                <%= tweet.yado_name %>
+                            </div>
+                            <h2 class="card-title h4">
+                                <%= tweet.yado_title %>
+                            </h2>
+                            <%# <p class="card-text">サブタイトル</p> %>
+                            <a class="btn btn-primary" href="#!">Read more →</a>
+                        </div>
+                            </li>
+                            <% end %>
+                        </ul>
+                    </div>
       </div>
   </div>
   <!-- /container -->

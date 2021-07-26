@@ -76,3 +76,18 @@ th {
 td {
   font-weight: bold;
 }
+
+
+
+.tweet-lists {
+  width: 100vw;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.show-lists {
+  display: flex;
+  
+}
+
