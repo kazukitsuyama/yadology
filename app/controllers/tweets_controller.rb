@@ -1,12 +1,11 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   def index
-    @tweets = Tweet.order("created_at DESC")
+    @tweets = Tweet.order('created_at DESC')
   end
 
   def new
     @tweet = Tweet.new
-
   end
 
   def create
@@ -27,9 +26,9 @@ class TweetsController < ApplicationController
     tweet = Tweet.find(params[:id])
     if tweet.update(tweet_params)
       redirect_to tweet_path
-   else
-     render :edit
-   end
+    else
+      render :edit
+    end
   end
 
   def show
