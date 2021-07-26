@@ -7,15 +7,6 @@
                 <!-- Blog entries-->
                 <div class="col-lg-8">
                     <div class='row'>
-                      <div class="card-header">宿名で検索</div>
-                        <%= search_form_for @q, url: search_tweets_path do |f| %>
-                      <div class="card-body">
-                        <div class="input-group">
-                          <%= f.search_field :yado_name_cont, class:'form-control' %>
-                          <%= f.submit '検索', class:"btn btn-primary" %>
-                      </div>
-                      <% end %>
-                    </div>
                       <h2 class='navbar-brand'>新着記事</h2>
                         <ul class='tweet-lists'>
                         <% @tweets.each do |tweet|%>
