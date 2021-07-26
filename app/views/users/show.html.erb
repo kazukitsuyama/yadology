@@ -1,0 +1,52 @@
+<div class="main">
+  <%= render "shared/header" %>
+  
+<!-- +++++ Welcome Section +++++ -->
+  <div id="ww">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 centered">
+          <%= image_tag "user.png", class:"user-img" %>
+          <p class="top-name">
+            <%= @name %>
+          </p>
+          <p>Hello everybody. I'm Stanley, a free handsome bootstrap theme coded. A really simple theme for those wanting to showcase their work with a cute & clean style.</p>
+          <p>Please, consider to register to <a href="#">our newsletter</a> to be updated with our latest themes and freebies. Like always, you can use this theme in any project freely. Share it with your friends.</p>
+        </div>
+        <!-- /col-lg-8 -->
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /ww -->
+
+
+
+  <div class="container pt">
+    <div class="row mt centered">
+      <div class="show-lists">
+      <div class='row'>
+        <h2 class='navbar-brand'>投稿した記事</h2>
+          <ul class='tweet-lists'>
+          <% @tweets.each do |tweet|%>
+          <li class='card mb-4'>
+              <%= link_to image_tag(tweet.image, class: "card-img-top"), tweet_path(tweet.id), method: :get %>
+          <div class="card-body">
+              <div class="small text-muted">
+                  <%= tweet.yado_name %>
+              </div>
+              <h2 class="card-title h4">
+                  <%= tweet.yado_title %>
+              </h2>
+              <%# <p class="card-text">サブタイトル</p> %>
+          </div>
+              </li>
+              <% end %>
+          </ul>
+      </div>
+      </div>
+  </div>
+<%= render "shared/footer" %>
+
+ 
