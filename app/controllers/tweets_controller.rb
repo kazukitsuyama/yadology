@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
   def index
     @tweets = Tweet.order("created_at DESC")
   end
