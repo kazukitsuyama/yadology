@@ -1,7 +1,9 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :search_product, only: [:index, :search]
   def index
     @tweets = Tweet.order('created_at DESC')
+    
   end
 
   def new
@@ -47,9 +49,18 @@ class TweetsController < ApplicationController
     redirect_to root_path unless current_user == tweet.user
   end
 
+  def search
+    @results = @p.result.includes(:yado_name)
+  end
+
   private
 
   def tweet_params
     params.require(:tweet).permit(:image, :yado_title, :yado_name, :text, :date, :price, :area_id).merge(user_id: current_user.id)
   end
+
+  def search_product
+    @p = Tweet.ransack(params[:q])  # 検索オブジェクトを生成
+  end
+
 end

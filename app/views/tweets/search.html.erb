@@ -1,0 +1,9 @@
+<h1>
+  商品検索
+</h1>
+<%= search_form_for @p, url: tweets_search_path do |f| %>
+  <%= f.label :area_eq, '商品名' %>
+  <%= f.collection_select :area_eq, @tweets, :area, :area,  include_blank: '指定なし' %>
+  <br>
+  <%= f.submit '検索' %>
+<% end %>
