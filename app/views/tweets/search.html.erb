@@ -1,30 +1,53 @@
-<h1>検索結果</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Height</th>
-      <th>Weight</th>
-      <th>Gender</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class='main'>
+        <!-- Responsive navbar-->
+        <%= render "shared/header" %>
+        <!-- Page content-->
+        <div class="container">
+            <div class="row">
+                <!-- Blog entries-->
+                <div class="col-lg-8">
+                    <div class='row'>
+                      <h2 class='navbar-brand'>検索結果</h2>
+                        <ul class='tweet-lists'>
+                        <% @results.each do |tweet|%>
+                        <li class='card mb-4'>
+                            <%= link_to image_tag(tweet.image, class: "card-img-top"), tweet_path(tweet.id), method: :get %>
+                        <div class="card-body">
+                            <div class="small text-muted">
+                                <%= tweet.yado_name %>
+                            </div>
+                            <h2 class="card-title h4">
+                                <%= tweet.yado_title %>
+                            </h2>
+                            <%# <p class="card-text">サブタイトル</p> %>
+                        </div>
+                            </li>
+                            <% end %>
+                        </ul>
+                    </div>
+                    <!-- ページネーション-->
+                    <nav aria-label="Pagination">
+                        <hr class="my-0" />
+                        <ul class="pagination justify-content-center my-4">
+                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
+                            <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#!">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#!">3</a></li>
+                            <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
+                            <li class="page-item"><a class="page-link" href="#!">15</a></li>
+                            <li class="page-item"><a class="page-link" href="#!">Older</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Side widgets-->
+                <%= render "tweets/widget" %>
+            </div>
+        </div>
+</div>
+  <!-- Footer-->
+  <%= render "shared/footer" %>
 
-  <tbody>
-    <% @results.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.age %></td>
-        <td><%= user.height %></td>
-        <td><%= user.weight %></td>
-        <td><%= user.gender %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'Top', users_path %>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="js/scripts.js"></script>
