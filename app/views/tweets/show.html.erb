@@ -23,7 +23,7 @@
         </section>
         <!-- Comments section-->
                     <section class="mb-5">
-                        <div class="card bg-light">
+                        <div class="comm bg-light">
                             <div class="card-body">
                             <% if user_signed_in? %>
                             <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
@@ -48,8 +48,12 @@
                             </div>
                         </div>
                          <% if user_signed_in? && current_user.id == @tweet.user_id %>
+                         <div class="comm-btn m-5 pr-5">
+                         <div class="text-right">
                         <%= link_to "投稿の編集",  edit_tweet_path, method: :get, class: "btn btn-primary" %>
                         <%= link_to "投稿の削除", tweet_path, method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-primary" %>
+                        </div>
+                        </div>
                         <% end %>
                     </section>
         <!-- Footer-->
