@@ -2,7 +2,7 @@ class TweetsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :set_q, only: [:index, :search]
   def index
-    @tweets = Tweet.order.page(params[:page], 'created_at DESC')
+    @tweets = Tweet.page(params[:page])
   end
 
   def new
