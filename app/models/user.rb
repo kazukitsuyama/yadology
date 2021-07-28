@@ -9,4 +9,6 @@ class User < ApplicationRecord
 
   has_many :tweets
   has_many :comments
+  has_many :likes, dependent: :destroy
+  has_many :liked_tweets, through: :likes, source: :tweet
 end
