@@ -25,9 +25,9 @@
         <div class="comm bg-light">
         <div class="box">
         <div class="like">
-            <%= image_tag "like.png" ,class:"like-icon" ,width:"50",height:"50"%>
-            
-            <%= @tweet.likes.count %>
+            <%= image_tag "like.png" ,class:"like-icon" ,width:"35",height:"35"%>
+
+            （<%= @tweet.likes.count %>）
                 <% if current_user.already_liked?(@tweet) %>
                 <%= button_to '取り消す', tweet_like_path(@tweet), {method: :delete, class: "btn btn-secondary"} %>
             <% else %>
