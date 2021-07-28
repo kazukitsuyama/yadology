@@ -1,0 +1,19 @@
+.box {
+  position:relative;
+	height:100px;
+}
+
+.like {
+  display: flex;
+	position:absolute;
+	right:10px;
+	top:10px;
+  margin-right: 0px;
+}
+
+.icon {
+  display: flex;
+	position:absolute;
+  right: 10px;
+  bottom: 10px;
+}

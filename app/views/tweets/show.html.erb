@@ -21,9 +21,32 @@
                 </div>
             </div>
         </section>
+        <section class="mb-5">
+        <div class="comm bg-light">
+        <div class="box">
+        <div class="like">
+            <%= image_tag "like.png" ,class:"like-icon" ,width:"35",height:"35"%>
+
+            （<%= @tweet.likes.count %>）
+                <% if current_user.already_liked?(@tweet) %>
+                <%= button_to '取り消す', tweet_like_path(@tweet), {method: :delete, class: "btn btn-secondary"} %>
+            <% else %>
+                <%= button_to 'いいね', tweet_likes_path(@tweet), class: "btn btn-primary" %>
+            <% end %>
+        </div>
+        </div>
+        
+     <%# <section class="mb-5 pb-5"> %>
+        <%# <div class="comm bg-light"> %>
+            <%# <h2>いいねしたユーザー</h2> %>
+            <%# <% @tweet.liked_users.each do |user| %> 
+            <%# <li><%= user.name</li>  %>
+            <%# <% end %> 
+        <%# </div> %>
+        <%# </div>    %>
+
         <!-- Comments section-->
-                    <section class="mb-5">
-                        <div class="comm bg-light">
+                   
                             <div class="card-body">
                             <% if user_signed_in? %>
                             <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
