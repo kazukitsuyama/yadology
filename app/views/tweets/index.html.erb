@@ -11,7 +11,7 @@
                         <ul class='tweet-lists'>
                         <% @tweets.each do |tweet|%>
                         <li class='card mb-4'>
-                            <%= link_to image_tag(tweet.image, class: "card-img-top"), tweet_path(tweet.id), method: :get %>
+                            <%= link_to image_tag(tweet.images, class: "card-img-top"), tweet_path(tweet.id), method: :get %>
                         <div class="card-body">
                             <div class="small text-muted">
                                 <%= tweet.yado_name %>
