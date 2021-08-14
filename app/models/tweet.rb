@@ -1,6 +1,6 @@
 class Tweet < ApplicationRecord
   with_options presence: true do
-    validates :image
+    validates :images
     validates :yado_title
     validates :yado_name
     validates :text
