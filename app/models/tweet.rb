@@ -1,6 +1,6 @@
 class Tweet < ApplicationRecord
   with_options presence: true do
-    validates :image
+    validates :images
     validates :yado_title
     validates :yado_name
     validates :text
@@ -13,7 +13,7 @@ class Tweet < ApplicationRecord
   end
 
   belongs_to :user
-  has_one_attached :image
+  has_many_attached :images
   has_many :comments
   has_many :likes
   has_many :liked_users, through: :likes, source: :user
