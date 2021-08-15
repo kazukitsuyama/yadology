@@ -12,6 +12,6 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_tweets, through: :likes, source: :tweet
   def already_liked?(tweet)
-    self.likes.exists?(tweet_id: tweet.id)
+    likes.exists?(tweet_id: tweet.id)
   end
 end
