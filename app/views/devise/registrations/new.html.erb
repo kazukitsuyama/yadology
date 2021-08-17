@@ -17,6 +17,9 @@
         <div class="panel">
           <h2 class="form-heading">新規登録する</h2>
         </div>
+
+        <%= render 'shared/error_messages', model: f.object %>
+        
       <form id="Login">
         <div class="form-group">
             <%= f.text_field :name, class:"form-control", id:"inputName", placeholder:"ユーザー名", maxlength:"40" %>

@@ -17,6 +17,7 @@
         <div class="panel">
           <h2 class="form-heading">ログイン</h2>
         </div>
+        <%= render 'shared/error_messages', model: f.object %>
           <form id="Login">
         <div class="form-group">
             <%= f.email_field :email, class:"form-control", id:"inputEmail", placeholder:"メールアドレス", autofocus: true %>
