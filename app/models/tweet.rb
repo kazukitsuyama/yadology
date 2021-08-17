@@ -5,8 +5,10 @@ class Tweet < ApplicationRecord
     validates :yado_name
     validates :text
     validates :date
-    validates :price
   end
+
+  validates :price, presence: true, numericality: { only_integer: true,
+    greater_than: 299, less_than: 10_000_000 }
 
   with_options presence: true, numericality: { other_than: 1 } do
     validates :area_id
