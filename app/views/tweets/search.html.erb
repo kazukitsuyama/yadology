@@ -11,7 +11,7 @@
                         <ul class='tweet-lists'>
                         <% @results.each do |tweet|%>
                         <li class='card mb-4'>
-                            <%= link_to image_tag(tweet.image, class: "card-img-top"), tweet_path(tweet.id), method: :get %>
+                            <%= link_to image_tag(tweet.images[0], class: "card-img-top"), tweet_path(tweet.id), method: :get %>
                         <div class="card-body">
                             <div class="small text-muted">
                                 <%= tweet.yado_name %>
@@ -26,16 +26,10 @@
                         </ul>
                     </div>
                     <!-- ページネーション-->
-                    <nav aria-label="Pagination">
+                   <nav aria-label="Pagination">
                         <hr class="my-0" />
                         <ul class="pagination justify-content-center my-4">
-                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
-                            <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                            <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">15</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">Older</a></li>
+                        <%= paginate @tweets %>
                         </ul>
                     </nav>
                 </div>

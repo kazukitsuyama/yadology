@@ -51,6 +51,7 @@ class TweetsController < ApplicationController
 
   def search
     @results = @q.result
+    @tweets = Tweet.page(params[:page])
   end
 
   def new_guest
