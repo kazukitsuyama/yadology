@@ -51,6 +51,16 @@ class TweetsController < ApplicationController
 
   def search
     @results = @q.result
+    @tweets = Tweet.page(params[:page])
+  end
+
+  def new_guest
+    user = User.find_or_create_by(email: 'guest@example.com') do |user|
+    user.name = "ゲスト"
+    user.password = SecureRandom.alphanumeric(10) + [*'a'..'z'].sample(1).join + [*'0'..'9'].sample(1).join
+    end
+    sign_in user
+    redirect_to root_path
   end
 
   private

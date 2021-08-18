@@ -3,12 +3,8 @@
     <h2 class="tweet-title">記事の情報を入力</h2>
     <%= form_with(model: @tweet, local: true) do |f| %>
 
-    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-    <%# render 'shared/error_messages', model: f.object %>
-    <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+    <%= render 'shared/error_messages', model: f.object %>
 
-    
-    <%# 商品名と商品説明 %>
     <div class="new-tweets">
     <div class="weight-bold-text">
         記事タイトル
@@ -38,9 +34,7 @@
         <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"tweets-text", id:"area-status"}) %>
       </div>
     </div>
-    <%# /商品名と商品説明 %>    
 
-    <%# 販売価格 %>
     <div class="main-price">
       <div class="weight-bold-text">
         <span>宿泊金額</span>
@@ -54,9 +48,7 @@
 
       </div>
     </div>
-    <%# /販売価格 %>
 
-    <%# 商品画像 %>
     <div class="img-upload">
       <div class="weight-bold-text">
         画像投稿
@@ -69,8 +61,6 @@
         <%= f.file_field :image, id:"yado-image" %>
       </div>
     </div>
-    <%# /商品画像 %>
-
 
 
     <%# 下部ボタン %>
