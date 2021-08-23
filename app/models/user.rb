@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
-
   has_many :tweets
   has_many :comments
   has_many :likes, dependent: :destroy
@@ -14,4 +13,7 @@ class User < ApplicationRecord
   def already_liked?(tweet)
     likes.exists?(tweet_id: tweet.id)
   end
+
+  mount_uploader :user_image, UserImageUploader
+
 end
