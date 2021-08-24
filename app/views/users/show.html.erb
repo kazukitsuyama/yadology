@@ -10,8 +10,11 @@
           <p class="top-name">
             <%= @name %>
           </p>
-          <p>Hello everybody.yle.</p>
-          <p>Please, consider to register to <a href="#">our newsletter</a> to be updated with our latest themes and freebies. Like always, you can use this theme in any project freely. Share it with your friends.</p>
+          <% if user_signed_in? && current_user.id %>
+          <div class="edit-btn">
+          <%= link_to 'アカウントの編集', edit_user_path(current_user), class: "btn btn-primary" %>
+          </div>
+          <% end %>
         </div>
         <!-- /col-lg-8 -->
       </div>
