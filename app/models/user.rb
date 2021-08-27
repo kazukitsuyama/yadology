@@ -14,6 +14,6 @@ class User < ApplicationRecord
     likes.exists?(tweet_id: tweet.id)
   end
 
-  mount_uploader :user_image, UserImageUploader
+  # mount_uploader :user_image, UserImageUploader
 
 end

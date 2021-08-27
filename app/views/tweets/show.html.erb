@@ -13,6 +13,7 @@
                             <span><%= @tweet.yado_name %></span>
                         <a class="badge bg-secondary text-decoration-none link-light" href="#!">
                             <%= @tweet.area.name %></a>
+                            <%= link_to @tweet.user.name, "/users/#{@tweet.user.id}", class: "badge bg-primary text-wrap" %>
                             </div>
                         <p class="lead">
                         <%= @tweet.text %>
